@@ -8,7 +8,7 @@ import AddAreaForm from '../components/addAreaForm.js'
 
 export async function getServerSideProps(){
     await connect()
-    const areas = await Area.find({})
+    const areas = await Area.find({}).lean()
     return {
         props:{
             areas: JSON.parse(JSON.stringify(areas))
@@ -18,9 +18,9 @@ export async function getServerSideProps(){
 
 export default function Areas({ areas }) {
     const [showForm, setShowForm] = useState(false)
-    const [areaList, setAreaList] = useState(areas)    
+    const [areaList, setAreaList] = useState(areas)
 
-    async function handleAdd(){
+    async function handleAreaListChange(){
         const res = await fetch('/api/getAreas')
         setAreaList(await res.json())
     }
@@ -29,10 +29,10 @@ export default function Areas({ areas }) {
         <div>
             <h1>Areas</h1>
             <button onClick={()=>setShowForm(true)}>Add New</button>
-            <AddAreaForm isOpen={showForm} onClose={() => setShowForm(false)} onAdd={handleAdd}/>
+            <AddAreaForm isOpen={showForm} onClose={() => setShowForm(false)} onAdd={handleAreaListChange}/>
             <div className={styles.cardContainer}>
                 {areaList.map(area => (
-                    <AreaCard area={area} key={area._id}></AreaCard>
+                    <AreaCard area={area} key={area._id} onDelete={handleAreaListChange}></AreaCard>
                 ))}
             </div>
             <Link href='/'>Back to home</Link>

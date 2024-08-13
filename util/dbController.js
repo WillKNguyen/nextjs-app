@@ -11,7 +11,6 @@ let isConnected = false;
 
 export const connect = async () => {
     if (isConnected) {
-        console.log('Already connected to MongoDB');
         return;
     }
 

@@ -15,9 +15,6 @@ export default function Home() {
           Backpacking Guidebook
         </h1>
 
-        <p className={styles.description}>
-          Get started by editing <code>pages/index.js</code>
-        </p>
 
         <div className={styles.grid}>
           <Link href='/areas' className={styles.card}>
@@ -28,23 +25,12 @@ export default function Home() {
             <h3>Gear List &rarr;</h3>
             <p>Checklist for gears to bring</p>
           </a>
-
           <a
             href="https://github.com/vercel/next.js/tree/canary/examples"
             className={styles.card}
           >
             <h3>Food List &rarr;</h3>
             <p>Checklist for food to bring</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
           </a>
         </div>
       </main>

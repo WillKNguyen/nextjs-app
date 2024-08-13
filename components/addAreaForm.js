@@ -34,31 +34,12 @@ export default function AddAreaForm({isOpen, onClose, onAdd}){
             <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
                 <h2>Add New Area</h2>
                 <form className={styles.modalForm} onSubmit={handleSubmit}>
-                    <label>
-                        Name:
-                        <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
-                    </label>
-                    <label>
-                        Park:
-                        <input type="text" value={park} onChange={(e) => setPark(e.target.value)} />
-                    </label>
-                    <label>
-                        Province:
-                        <input type="text" value={province} onChange={(e) => setProvince(e.target.value)} />
-                    </label>
-                    <label>
-                        Difficulty:
-                        <input type="text" value={difficulty} onChange={(e) => setDifficulty(e.target.value)} />
-                    </label>
-                    <label>
-                        Distance:
-                        <input type="text" value={distance} onChange={(e) => setDistance(e.target.value)} />
-                    </label>
-                    <label>
-                        Duration:
-                        <input type="text" value={duration} onChange={(e) => setDuration(e.target.value)} />
-                    </label>
-                    
+                    <input placeholder='Name' type="text" value={name} onChange={(e) => setName(e.target.value)} />
+                    <input placeholder='Park' type="text" value={park} onChange={(e) => setPark(e.target.value)} />
+                    <input placeholder='Province' type="text" value={province} onChange={(e) => setProvince(e.target.value)} />
+                    <input placeholder='Difficulty' type="text" value={difficulty} onChange={(e) => setDifficulty(e.target.value)} />
+                    <input placeholder='Distance' type="text" value={distance} onChange={(e) => setDistance(e.target.value)} />
+                    <input placeholder='Duration' type="text" value={duration} onChange={(e) => setDuration(e.target.value)} />
                     <button type="submit">Add Area</button>
                     <button type="button" onClick={onClose}>Cancel</button>
                 </form>
