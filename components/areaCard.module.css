@@ -1,0 +1,9 @@
+.statistics{
+    display: flex;
+    gap: 1rem
+}
+
+.header{
+    display: flex;
+    justify-content: space-between;
+}

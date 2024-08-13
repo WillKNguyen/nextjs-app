@@ -1,0 +1,7 @@
+.cardContainer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust min-width as needed */
+    gap: 1rem; /* Space between cards */
+    max-width: 100%; /* Full width of the container */
+    justify-content: center; /* Center the grid within the container */
+}
