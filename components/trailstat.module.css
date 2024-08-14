@@ -1,4 +1,14 @@
 .statComp{
     display: flex;
+    justify-content: center;
+    align-items: center;
     gap: 0.2rem;
+}
+
+#completedStat {
+    color: #4CAF50; /* Green color to stand out */
+    font-weight: bold; /* Make it bold to further stand out */
+    border-style: solid;
+    padding: 0.2rem;
+    border-radius: 8px;
 }

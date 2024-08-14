@@ -1,7 +1,82 @@
-.cardContainer{
+.container {
+    padding: 2rem; /* Increased padding for spaciousness */
+}
+
+.title {
+    font-size: 3rem; /* Larger font size for emphasis */
+    font-weight: bold; /* Make the text bold */
+    background: linear-gradient(135deg, #382dd6, #61d2ff); /* Gradient text color */
+    -webkit-background-clip: text; /* Clip the background to the text */
+    -webkit-text-fill-color: transparent; /* Make the fill color transparent to show the gradient */
+    text-align: center; /* Center the heading */
+    margin-bottom: 2rem; /* Add space below the heading */
+    text-transform: uppercase; /* Make the text uppercase */
+    letter-spacing: 2px; /* Add spacing between the letters */
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem; /* Slightly smaller font size for smaller screens */
+        margin-bottom: 1.5rem; /* Adjust the bottom margin */
+    }
+}
+
+.searchBarContainer {
+    display: flex;
+    justify-content: center; /* Center the search bar */
+    margin-bottom: 2rem; /* Space between the search bar and other content */
+}
+
+.searchBar {
+    width: 100%; /* Full width within its container */
+    max-width: 500px; /* Maximum width of the search bar */
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.searchBar:focus {
+    border-color: #61d2ff; /* Highlight the border on focus */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+.cardContainer {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust min-width as needed */
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr)); /* Dynamically fit columns */
     gap: 1rem; /* Space between cards */
     max-width: 100%; /* Full width of the container */
     justify-content: center; /* Center the grid within the container */
+    margin: 0 auto; /* Center the container itself */
+    padding: 1rem; /* Optional padding around the container */
+    max-height: 600px; /* Default max-height */
+    overflow-y: auto;
+}
+
+.swankyButton {
+    background: linear-gradient(135deg, #61d2ff, #382dd6);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.swankyButton:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .cardContainer {
+        max-height: 400px; /* Adjust height for smaller screens */
+    }
 }

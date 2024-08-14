@@ -7,10 +7,10 @@ const areaSchema = new Schema({
     Distance: String,
     Park: String,
     Province: String,
-    Dayhikes: [String],
     Notes: String,
     Difficulty: String,
-    Duration: String
+    Duration: String,
+    Completed: Boolean
 })
 
 const Area = mongoose.models.Area || mongoose.model('Area', areaSchema)

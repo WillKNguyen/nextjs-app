@@ -1,1 +1,1 @@
-This is a starter template for [Learn Next.js](https://nextjs.org/learn).
+A small webapp to keep track of my backpacking wishlist, built using a Next.js template

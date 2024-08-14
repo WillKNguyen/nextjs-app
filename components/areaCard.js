@@ -5,10 +5,15 @@ import TrailStat from './trailStat'
 import DeleteDialog from './deleteDialog'
 import { useState } from 'react'
 
-export default function AreaCard({area, onDelete}){
+export default function AreaCard({area, onDelete, setEditShowForm, setEditFormContent}){
     const [showDeleteDialog, setShowDeleteDialog] = useState(false)
 
     function handleDeleteClick(){setShowDeleteDialog(true)}
+
+    function handleEditClick(){
+        setEditShowForm(true)
+        setEditFormContent(area)
+    }
 
     async function confirmDelete(){
         await fetch('/api/deleteArea', {
@@ -29,17 +34,20 @@ export default function AreaCard({area, onDelete}){
             <div className={styles.header}>
                 <TrailStat statType={'Location'} stat={area.Park}></TrailStat>
                 <div className={styles.statistics}>
-                    <img src='/edit.svg' style={{cursor: 'pointer'}}></img>
-                    <img src='/delete.svg' onClick={handleDeleteClick} style={{cursor: 'pointer'}}></img>
+                    <img className={styles.icon} src='/edit.svg' style={{cursor: 'pointer'}} onClick={handleEditClick}></img>
+                    <img className={styles.icon} src='/delete.svg' onClick={handleDeleteClick} style={{cursor: 'pointer'}}></img>
                 </div>
             </div>
             <Link href={`/areas/${area._id}`}>
                 <h3>{area.Name}</h3>
             </Link>
-            <div className={styles.statistics}>
-                <TrailStat statType={'Difficulty'} stat={area.Difficulty}></TrailStat>
-                <TrailStat statType={'Distance'} stat={area.Distance}></TrailStat>
-                <TrailStat statType={'Duration'} stat={area.Duration}></TrailStat>
+            <div className={styles.footer}>
+                <div className={styles.statistics}>
+                    <TrailStat statType={'Difficulty'} stat={area.Difficulty}></TrailStat>
+                    <TrailStat statType={'Distance'} stat={area.Distance}></TrailStat>
+                    <TrailStat statType={'Duration'} stat={area.Duration}></TrailStat>
+                </div>
+                <TrailStat statType={'Completed'} stat={area.Completed ? 'Completed' : null}></TrailStat>
             </div>
             {showDeleteDialog && (
                 <DeleteDialog className={styles.dialogOverlay} confirm={confirmDelete} cancel={cancelDelete}></DeleteDialog>

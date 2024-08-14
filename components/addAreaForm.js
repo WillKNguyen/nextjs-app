@@ -2,12 +2,12 @@ import { useState } from "react";
 import styles from './addAreaForm.module.css'
 
 export default function AddAreaForm({isOpen, onClose, onAdd}){
-    const [name, setName] = useState('')
-    const [park, setPark] = useState('')
-    const [province, setProvince] = useState('')
-    const [distance, setDistance] = useState('')
-    const [duration, setDuration] = useState('')
-    const [difficulty, setDifficulty] = useState('')
+    const [name, setName] = useState(null)
+    const [park, setPark] = useState(null)
+    const [province, setProvince] = useState(null)
+    const [distance, setDistance] = useState(null)
+    const [duration, setDuration] = useState(null)
+    const [difficulty, setDifficulty] = useState(null)
 
     async function handleSubmit(event){
         event.preventDefault()
@@ -23,6 +23,12 @@ export default function AddAreaForm({isOpen, onClose, onAdd}){
 
         await onAdd()
         onClose()
+        setName(null)
+        setDifficulty(null)
+        setDistance(null)
+        setDuration(null)
+        setPark(null)
+        setProvince(null)
     }
 
     if (!isOpen){

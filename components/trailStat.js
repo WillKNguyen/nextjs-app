@@ -1,4 +1,5 @@
 import styles from './trailstat.module.css'
+import areaCardStyles from './areaCard.module.css'
 
 export default function TrailStat({statType,stat}){
     let svgFile
@@ -18,12 +19,19 @@ export default function TrailStat({statType,stat}){
             svgFile= '/time.svg'
             unit= 'days'
             break
+        case('completed'):
+            svgFile= '/check.svg'
+            break
     }
 
-    return (
-        <div className={styles.statComp}>
-            <img src={svgFile} alt={statType}/>
-            <span>{stat + (unit? ' ' + unit: '')}</span>
-        </div>
-    )
+    if(stat){
+        return (
+            <div className={styles.statComp} id={statType === 'Completed' ? styles.completedStat : ''}>
+                <img className={areaCardStyles.icon} src={svgFile} alt={statType}/>
+                <span>{stat + (unit? ' ' + unit : '')}</span>
+            </div>
+        )
+    }
+
+    return null
 }

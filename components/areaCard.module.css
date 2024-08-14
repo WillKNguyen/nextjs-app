@@ -1,7 +1,14 @@
+.footer{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem
+}
+
 .statistics{
     display: flex;
     gap: 1rem
 }
+
 
 .header{
     display: flex;
@@ -26,4 +33,18 @@
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
     text-align: center;
+}
+
+.icon {
+    width: 100%; /* SVG will take up the full width of its container */
+    max-width: 24px; /* Optional: limit the maximum size */
+    height: auto; /* Maintain aspect ratio */
+    cursor: pointer; /* Change cursor to indicate it's clickable */
+}
+
+/* Example for responsive sizing */
+@media (min-width: 600px) {
+    .delete-icon {
+        max-width: 32px; /* Increase size on larger screens */
+    }
 }
