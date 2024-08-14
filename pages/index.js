@@ -21,17 +21,14 @@ export default function Home() {
             <h3>Destinations &rarr;</h3>
             <p>Places we want to visit</p>
           </Link>
-          <a href="https://nextjs.org/learn" className={styles.card}>
+          <Link href='/' className={styles.card}>
             <h3>Gear List &rarr;</h3>
             <p>Checklist for gears to bring</p>
-          </a>
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
+          </Link>
+          <Link href='/' className={styles.card}>
             <h3>Food List &rarr;</h3>
             <p>Checklist for food to bring</p>
-          </a>
+          </Link>
         </div>
       </main>
 
