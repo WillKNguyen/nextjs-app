@@ -27,6 +27,8 @@ export default function AreaDetails({ area }) {
     }
 
     function displayNotes(){
+        if (!areaData.Notes) {return null}
+
         const lines = areaData.Notes.split('\n')
         
         return(
