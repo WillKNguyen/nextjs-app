@@ -41,6 +41,7 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     font-family: inherit;
+    height: 25vh;
 }
 
 .modalForm button {

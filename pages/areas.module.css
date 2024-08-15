@@ -80,3 +80,15 @@
         max-height: 400px; /* Adjust height for smaller screens */
     }
 }
+
+.backLink {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(135deg, #fd1260, #2d3ed6);
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}

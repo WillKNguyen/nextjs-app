@@ -16,6 +16,7 @@ body {
     sans-serif;
   line-height: 1.6;
   font-size: 18px;
+  background: linear-gradient(135deg, #ecf8f8a8, #ffffff); /* Gradient text color */
 }
 
 * {

@@ -36,7 +36,7 @@ export default function Areas({ areas }) {
     }
 
     async function handleSearch(searchTerm){
-        const res = await fetch(`/api/getAreas?searchTerm=${encodeURIComponent(searchTerm)}`)
+        const res = await fetch(`/api/getAreas?name=${encodeURIComponent(searchTerm)}`)
         setAreaList(await res.json())
     }
 
@@ -65,7 +65,7 @@ export default function Areas({ areas }) {
                 ))}
             </div>
             <EditAreaForm area={editFormContent} isOpen={showEditForm} setEditShowForm={setEditShowForm} onSave={resetEditForm}></EditAreaForm>
-            <Link href='/'>Back to home</Link>
+            <Link href='/' className={styles.backLink}>Back to Home</Link>
         </div>
     );
 }
