@@ -5,6 +5,7 @@ import styles from '../../components/areaDetails.module.css';
 import TrailStat from '../../components/trailStat';
 import { useState } from 'react'
 import EditAreaForm from '../../components/editAreaForm';
+import OSMap from '../../components/map/osMap';
 
 export async function getServerSideProps(context) {
   const { id } = context.params;
@@ -33,8 +34,8 @@ export default function AreaDetails({ area }) {
         
         return(
             <ul className={styles.scrollableList}>
-                {lines.map(line => (
-                    <li>{line}</li>
+                {lines.map((line, index) => (
+                    <li key={index}>{line}</li>
                 ))}
             </ul>
         )
@@ -55,6 +56,9 @@ export default function AreaDetails({ area }) {
                 <TrailStat statType={'Duration'} stat={areaData.Duration}></TrailStat>
                 
             </div>
+
+            {areaData.Gpx && areaData.Gpx.length > 0 ? <OSMap gpxFile={areaData.Gpx}></OSMap> : null}
+
             <div>
                 <strong>Notes</strong>
                 {displayNotes()}

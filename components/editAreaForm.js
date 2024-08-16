@@ -12,6 +12,7 @@ export default function EditAreaForm({area, isOpen, onSave, setEditShowForm}){
     const [difficulty, setDifficulty] = useState(area.Difficulty) 
     const [notes, setNotes] = useState(area.Notes) 
     const [completed, setCompleted] = useState(area.Completed) 
+    const [gpx, setGpx] = useState(area.Gpx)
 
     function onClose(){
         setEditShowForm(false)
@@ -20,7 +21,7 @@ export default function EditAreaForm({area, isOpen, onSave, setEditShowForm}){
     async function handleSave(event){
         event.preventDefault()
         const id = area._id
-        const editArea = {id, name, park, province, difficulty, distance, duration, notes, completed}
+        const editArea = {id, name, park, province, difficulty, distance, duration, notes, completed, gpx}
         await fetch('/api/editArea', {
             method: 'POST',
             headers: {
@@ -30,6 +31,18 @@ export default function EditAreaForm({area, isOpen, onSave, setEditShowForm}){
         })
         await onSave()
         onClose()
+    }
+
+    function handleGpxUpload(event){
+        const file = event.target.files[0]
+        const reader = new FileReader()
+
+        reader.onload = function(e){
+            const content = e.target.result; // Access the result (file content)
+            setGpx(content); // Store the content in state
+        };
+
+        reader.readAsText(file)
     }
 
     return (
@@ -46,6 +59,9 @@ export default function EditAreaForm({area, isOpen, onSave, setEditShowForm}){
                     <input placeholder='Difficulty' type="text" value={difficulty} onChange={(e) => setDifficulty(e.target.value)} />
                     <input placeholder='Distance' type="text" value={distance} onChange={(e) => setDistance(e.target.value)} />
                     <input placeholder='Duration' type="text" value={duration} onChange={(e) => setDuration(e.target.value)} />
+                    <label>Upload GPX file
+                        <input type="file" accept=".gpx" onChange={handleGpxUpload}/>
+                    </label>
                     <textarea placeholder='Notes' type="text" value={notes} onChange={(e) => setNotes(e.target.value)} />
                     <button className={styles.swankyButton} type="submit">Save</button>
                     <button className={styles.swankyButton} type="button" onClick={onClose}>Cancel</button>

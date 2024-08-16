@@ -4,7 +4,7 @@ import Area from '../../model/area'
 export default async function handler(req,res) {
     if (req.method === 'POST'){
         await connect()
-        const {name, park, province, difficulty, distance, duration} = req.body
+        const {name, park, province, difficulty, distance, duration, gpx} = req.body
 
         try {
             const newArea = new Area({
@@ -14,6 +14,7 @@ export default async function handler(req,res) {
                 Park: park,
                 Province: province,
                 Duration: duration,
+                Gpx: gpx
             })
             await newArea.save()
             res.status(201).json(newArea)

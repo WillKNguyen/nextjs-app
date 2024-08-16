@@ -4,7 +4,7 @@ import Area from '../../model/area'
 export default async function handler(req,res) {
     if (req.method === 'POST'){
         await connect()
-        const {id, name, park, province, difficulty, distance, duration, notes, completed} = req.body
+        const {id, name, park, province, difficulty, distance, duration, notes, completed, gpx} = req.body
         try {
             const updatedData = {
                 Name: name,
@@ -14,7 +14,8 @@ export default async function handler(req,res) {
                 Province: province,
                 Duration: duration,
                 Notes: notes,
-                Completed: completed
+                Completed: completed,
+                Gpx: gpx
             }
 
             const updatedArea = await Area.findByIdAndUpdate(id, updatedData, {

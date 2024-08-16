@@ -10,7 +10,8 @@ const areaSchema = new Schema({
     Notes: String,
     Difficulty: String,
     Duration: String,
-    Completed: Boolean
+    Completed: Boolean,
+    Gpx: String
 })
 
 const Area = mongoose.models.Area || mongoose.model('Area', areaSchema)
