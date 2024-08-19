@@ -1,8 +1,14 @@
-.statComp{
+.statComp {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 0.2rem;
+}
+
+@media (max-width: 768px) {
+    .statComp {
+        gap: 0.1rem; /* Reduce the gap between elements for smaller screens */
+    }
 }
 
 #completedStat {
@@ -11,4 +17,11 @@
     border-style: solid;
     padding: 0.2rem;
     border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    #completedStat {
+        padding: 0.15rem; /* Slightly reduce padding for smaller screens */
+        font-size: 0.9rem; /* Reduce font size for better fit on smaller screens */
+    }
 }

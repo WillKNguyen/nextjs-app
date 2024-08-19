@@ -30,7 +30,6 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-
   max-width: 800px;
   margin-top: 3rem;
 }
@@ -44,9 +43,7 @@
   text-decoration: none;
   border: 1px solid #eaeaea;
   border-radius: 10px;
-  transition:
-    color 0.15s ease,
-    border-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .card:hover,
@@ -72,13 +69,51 @@
   height: 1em;
 }
 
-@media (max-width: 600px) {
+.name {
+  margin-left: 8px;
+}
+
+/* Media Queries for Mobile */
+@media (max-width: 768px) {
+  .container {
+      padding: 0 1rem; /* Slightly increase padding for mobile */
+  }
+
+  .title {
+      font-size: 2.5rem; /* Reduce font size for mobile */
+      margin-bottom: 1.5rem; /* Adjust bottom margin for mobile */
+  }
+
   .grid {
-    width: 100%;
+      margin-top: 2rem; /* Reduce top margin for mobile */
+  }
+
+  .card {
+    display: flex;
     flex-direction: column;
+    flex-basis: 100%; /* Make cards full width on mobile */
+    margin: 0.5rem 0; 
+    padding: 1rem; /* Adjust padding for better fit on mobile */
+    width: 80%;
+    align-items: center;
+  }
+
+  .card h3 {
+      font-size: 1.25rem; /* Reduce heading size in cards */
+  }
+
+  .card p {
+      font-size: 1rem; /* Reduce paragraph size in cards */
   }
 }
 
-.name {
-  margin-left:8px
+@media (max-width: 600px) {
+  .grid {
+      width: 100%;
+      flex-direction: column;
+  }
+
+  .title {
+      font-size: 2rem; /* Further reduce font size on smaller screens */
+  }
 }

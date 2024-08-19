@@ -44,7 +44,6 @@
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-
 .cardContainer {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr)); /* Dynamically fit columns */
@@ -55,6 +54,14 @@
     padding: 1rem; /* Optional padding around the container */
     max-height: 600px; /* Default max-height */
     overflow-y: auto;
+    margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .cardContainer {
+        grid-template-columns: 1fr; /* Single column for small screens */
+        max-height: 400px; /* Adjust height for smaller screens */
+    }
 }
 
 .swankyButton {
@@ -76,8 +83,9 @@
 }
 
 @media (max-width: 768px) {
-    .cardContainer {
-        max-height: 400px; /* Adjust height for smaller screens */
+    .swankyButton {
+        font-size: 14px; /* Adjust button text size for smaller screens */
+        padding: 8px 16px; /* Reduce padding for smaller screens */
     }
 }
 
@@ -91,4 +99,16 @@
     text-decoration: none;
     font-weight: bold;
     transition: background-color 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem; /* Reduce padding on smaller screens */
+    }
+
+    .backLink {
+        margin-top: 1.5rem; /* Adjust margin-top for smaller screens */
+        padding: 0.5rem 0.75rem; /* Reduce padding for smaller screens */
+        font-size: 14px; /* Adjust font size */
+    }
 }
